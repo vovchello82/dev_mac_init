@@ -45,8 +45,8 @@ brew install maven || brew upgrade maven
 
 if ! [ -e ~/.ssh/id_rsa_github.pub ] ; then
 	ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa_github -P "" -C "" -q
-	chmod 400  ~/.ssh/id_rsa_github.pub
-	ssh-add -K ~/.ssh/id_rsa_github
+	chmod 644  ~/.ssh/id_rsa_github.pub
+	ssh-add --apple-use-keychain ~/.ssh/id_rsa_github
 
 	echo "your gitlab public key is: "
 	cat ~/.ssh/id_rsa_github.pub
